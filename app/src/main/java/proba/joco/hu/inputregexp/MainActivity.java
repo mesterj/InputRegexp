@@ -20,10 +20,9 @@ public class MainActivity extends Activity implements Validator.ValidationListen
     TextView helloText;
 
     @Required(order = 0)
-    @Regex(order = 0,pattern = "[A-Z]")
+    //@Regex(order = 0,pattern = "[A-Z]+", message = "Héka' E nem csupa nagytetű!")
+    @Regex(order = 0,pattern = "(^[A-Z]{4})([0-9]{4})", message = "Hé paraszt ez nem szervíz munkalap azonosító")
     private EditText etRegexp;
-
-    String minta = "^/D{3}//.";
 
     Validator validator;
 
@@ -35,8 +34,6 @@ public class MainActivity extends Activity implements Validator.ValidationListen
         setContentView(R.layout.activity_main);
 
         validator= new Validator(this);
-
-        validator = new Validator(this);
         validator.setValidationListener(this);
 
         btnCheck = (Button) findViewById(R.id.btnCheck);
@@ -56,7 +53,8 @@ public class MainActivity extends Activity implements Validator.ValidationListen
 
     @Override
     public void onValidationSucceeded() {
-        Toast.makeText(this,"Télleg csupa nagytetű", Toast.LENGTH_LONG).show();
+        helloText.setText(etRegexp.getText().toString());
+        Toast.makeText(this,"E' fasza", Toast.LENGTH_LONG).show();
     }
 
     @Override

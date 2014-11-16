@@ -15,8 +15,9 @@
         android:text="Ellenőríz"
         android:id="@+id/btnCheck"
         android:layout_below="@+id/etRegexp"
-        android:layout_alignRight="@+id/etRegexp"
-        android:layout_alignEnd="@+id/etRegexp" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="121dp" />
 
     <EditText
         android:layout_width="match_parent"
